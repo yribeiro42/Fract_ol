@@ -1,6 +1,6 @@
 NAME = Fract_ol
-CFLAGS = -Wall -Wextra -Werror
-SRC = 
+#CFLAGS = -Wall -Wextra -Werror
+SRC = fractol.c draw.c environment.c
 OBJ = $(SRC:.c=.o)
 LIBFT_H = -Ilibft/
 LIBFT = libft/libft.a
