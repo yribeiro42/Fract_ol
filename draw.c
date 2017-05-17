@@ -14,7 +14,17 @@ void	test(t_env *env)
 {
 	int	x;
 	int	y;
+	int i;
 
-	x = 0;
 	y = 0;
+	while (y < HEIGHT)
+	{
+		x = 0;
+		while (x < WIDTH)
+		{
+			i = mandelbrot(env);
+			x++;
+		}
+		y++;
+	}
 }
