@@ -8,6 +8,7 @@
 
 # define WIDTH 800
 # define HEIGHT 800
+# define BLACK 0x000000
 
 typedef	struct	s_complex
 {
@@ -25,10 +26,30 @@ typedef struct 	s_env
 	t_complex	c;
 	int			iteration;
 	double		zoom;	
-	double		x1;
-	double		x2;
-	double		y1;
-	double		y2;
-
+	double		start_x;
+	double		start_y;
+	double		new_r;
+	double		new_i;
+	double		old_r;
+	double		old_i;
+	double		p_i;
+	double		p_r;
 
 }				t_env;
+
+// DRAW //
+
+void	fill_pixel(t_env *env, int x, int y, int hexcolor);
+void	draw(t_env *env);
+
+// MANDEL //
+
+void	init_mandelbrot(t_env *env);
+int		mandelbrot(t_env *env);
+
+// ENV //
+
+void	init_env(t_env *env);
+void	create_env(t_env *env);
+void	destroy_env(t_env *env);
+
