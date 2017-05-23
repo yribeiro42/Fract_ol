@@ -6,8 +6,9 @@
 # include <fcntl.h>
 # include <math.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 600
+# define HEIGHT 600
+
 #define ESC 65307
 #define PAGE_UP 65365
 #define PAGE_DOWN 65366
@@ -20,8 +21,8 @@
 
 typedef	struct	s_complex
 {
-	double		r;
-	double		i;
+	double		real;
+	double		imag;
 }				t_complex;
 
 typedef struct 	s_env
@@ -30,20 +31,13 @@ typedef struct 	s_env
 	void		*win;
 	char		*img_str;
 	void		*img_ptr;
-	t_complex	z;
-	t_complex	c;
 	int			iteration;
 	int			color;
 	double		zoom;	
 	double		start_x;
 	double		start_y;
-	double		new_r;
-	double		new_i;
-	double		old_r;
-	double		old_i;
 	double		p_i;
 	double		p_r;
-
 
 }				t_env;
 
