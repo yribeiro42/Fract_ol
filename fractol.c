@@ -9,6 +9,7 @@ int main(int argc, char **argv)
 	create_env(env);
 	init_mandelbrot(env);
 	draw(env);
+	mlx_key_hook(env->win, key_hook, env);
 	destroy_env(env);
 	mlx_loop(env->mlx);
 	return (0);
