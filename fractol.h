@@ -38,6 +38,7 @@ typedef struct 	s_env
 	double		start_y;
 	double		p_i;
 	double		p_r;
+	t_complex	z;
 
 }				t_env;
 
@@ -50,6 +51,12 @@ void	draw(t_env *env);
 
 void	init_mandelbrot(t_env *env);
 int		mandelbrot(t_env *env);
+
+// JULIA //
+
+void	init_julia(t_env *env);
+int		julia(t_env *env);
+void	draw_julia(t_env *env);
 
 // ENV //
 
