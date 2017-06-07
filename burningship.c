@@ -1,15 +1,16 @@
 #include "fractol.h"
+#include <math.h>
 
-void	init_mandelbrot(t_env *env)
+void	init_burningship(t_env *env)
 {
-	env->start_x = -0.75;
+	env->start_x = -0.3;
 	env->start_y = 0.0;
-	env->zoom = 0.8;
-	env->iteration = 75;
-	env->color = 0xFFAA7F;
+	env->zoom = 0.7;
+	env->iteration = 100;
+	env->color = 0xFFAA00;
 }
 
-int		mandelbrot(t_env *env)
+int		burningship(t_env *env)
 {
 	t_complex	new;
 	t_complex	old;
@@ -23,7 +24,7 @@ int		mandelbrot(t_env *env)
 		old.real = new.real;
 		old.imag = new.imag;
 		new.real = old.real * old.real - old.imag * old.imag + env->p_r;
-		new.imag = 2.0 * old.real * old.imag + env->p_i;
+		new.imag = 2.0 * fabs(old.real * old.imag) + env->p_i;
 		i++;
 	}
 	if (i == env->iteration)
@@ -31,7 +32,7 @@ int		mandelbrot(t_env *env)
 	return (i);
 }
 
-void	draw_mandelbrot(t_env *env)
+void	draw_burningship(t_env *env)
 {
 	int	x;
 	int	y;
@@ -45,7 +46,7 @@ void	draw_mandelbrot(t_env *env)
 		while (x < WIDTH)
 		{
 			env->p_r = 1.5 * (x - WIDTH / 2.0) / (0.5 * env->zoom * WIDTH) + env->start_x;
-			color = (env->color * (mandelbrot(env) % 255));
+			color = (env->color * (burningship(env) % 255));
 			fill_pixel(env, x, y, color);
 			x++;
 		}

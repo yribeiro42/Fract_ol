@@ -58,6 +58,12 @@ void	init_julia(t_env *env);
 int		julia(t_env *env);
 void	draw_julia(t_env *env);
 
+// BURNINGSHIP //
+
+void	init_burningship(t_env *env);
+int		burningship(t_env *env);
+void	draw_burningship(t_env *env);
+
 // ENV //
 
 void	init_env(t_env *env);
