@@ -2,18 +2,24 @@
 
 void	usage(void)
 {
-	write(1, "Usage: ./fractol #\n 1: Mandelbrot\n 2:Julia\n 3:Burning Ship", 58);
+	write(1, "Usage: ./fractol #\n 1: Mandelbrot\n 2: Julia\n 3: Burning Ship\n", 61);
+	exit(0);
 }
 
 int main(int argc, char **argv)
 {
 	t_env	*env;
 
+	if (argc != 2)
+		usage();
 	env = malloc(sizeof(t_env));
 	init_env(env);
 	create_env(env);
-	init_burningship(env);
-	draw_burningship(env);
+	if (argv[1][0] == '1' || argv[1][0] == '2' || argv[1][0] == '3')
+		env->fractal = argv[1][0];
+	else
+		usage();
+	redraw(env);
 	mlx_key_hook(env->win, key_hook, env);
 	destroy_env(env);
 	mlx_loop(env->mlx);

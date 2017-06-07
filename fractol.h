@@ -31,6 +31,7 @@ typedef struct 	s_env
 	void		*win;
 	char		*img_str;
 	void		*img_ptr;
+	char		fractal;
 	int			iteration;
 	int			color;
 	double		zoom;	
@@ -38,8 +39,8 @@ typedef struct 	s_env
 	double		start_y;
 	double		p_i;
 	double		p_r;
+	int			(*fractal_ptr)(struct s_env*);
 	t_complex	z;
-
 }				t_env;
 
 // DRAW //
@@ -51,6 +52,7 @@ void	draw(t_env *env);
 
 void	init_mandelbrot(t_env *env);
 int		mandelbrot(t_env *env);
+void	draw_mandelbrot(t_env *env);
 
 // JULIA //
 

@@ -10,13 +10,12 @@ void	fill_pixel(t_env *env, int x, int y, int hexcolor)
 	env->img_str[pos + 2] = hexcolor >> 16;
 }
 
-
-/*void	fill_pixel(t_env *env, int x, int y, int hexcolor, int hexcolor1, int hexcolor2)
+void	redraw(t_env *env)
 {
-	int pos;
-
-	pos = (4 * x) + (4 * y * WIDTH);
-	env->img_str[pos] = hexcolor;
- 	env->img_str[pos + 1] = hexcolor1 >> 8;
-	env->img_str[pos + 2] = hexcolor2 >> 16;
-}*/
+	if (env->fractal == '1')
+		env->fractal_ptr = draw_mandelbrot;
+	else if (env->fractal == '2')
+		env->fractal_ptr = draw_julia;
+	else if (env->fractal == '3')
+		env->fractal_ptr = draw_burningship;
+}
