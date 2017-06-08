@@ -24,7 +24,7 @@ void	draw_image(t_env *env)
 
 void	set_hooks(t_env *env)
 {
-	mlx_do_key_autorepeatoff(env->mlx);
+	mlx_do_key_autorepeaton(env->mlx);
 	mlx_hook(env->win, 2, 0, key_press_hook, env);
 	mlx_hook(env->win, 4, 0, mouse_button_hook, env);
 }

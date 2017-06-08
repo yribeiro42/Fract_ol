@@ -35,6 +35,7 @@ typedef struct 	s_env
 	int			iteration;
 	int			color;
 	int			flag;
+	int			debug;
 	double		zoom;	
 	double		start_x;
 	double		start_y;
