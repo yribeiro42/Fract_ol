@@ -2,10 +2,10 @@
 
 void	init_mandelbrot(t_env *env)
 {
-	env->start_x = -0.75;
+	env->start_x = -0.5;
 	env->start_y = 0.0;
-	env->zoom = 0.8;
-	env->iteration = 75;
+	env->zoom = 1;
+	env->iteration = 300                                                                               ;
 	env->color = 0xFFAA7F;
 }
 
@@ -33,6 +33,7 @@ int		mandelbrot(t_env *env)
 
 void	draw_mandelbrot(t_env *env)
 {
+	init_mandelbrot(env);
 	int	x;
 	int	y;
 	int color;

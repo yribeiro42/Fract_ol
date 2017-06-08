@@ -21,3 +21,10 @@ void	destroy_env(t_env *env)
 	mlx_put_image_to_window(env->mlx, env->win, env->img_ptr, 0, 0);
 	mlx_destroy_image(env->mlx, env->img_ptr);
 }
+
+void	set_hooks(t_env *env)
+{
+	mlx_do_key_autorepeatoff(env->mlx);
+	mlx_hook(env->win, 2, 0, key_press_hook, env);
+	mlx_hook(env->win, 4, 0, mouse_button_hook, env);
+}

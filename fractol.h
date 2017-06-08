@@ -39,7 +39,6 @@ typedef struct 	s_env
 	double		start_y;
 	double		p_i;
 	double		p_r;
-	int			(*fractal_ptr)(struct s_env*);
 	t_complex	z;
 }				t_env;
 
@@ -57,7 +56,7 @@ void	draw_mandelbrot(t_env *env);
 // JULIA //
 
 void	init_julia(t_env *env);
-int		julia(t_env *env);
+int		julia(t_env *env, int x, int y);
 void	draw_julia(t_env *env);
 
 // BURNINGSHIP //
@@ -74,4 +73,6 @@ void	destroy_env(t_env *env);
 
 // HOOK //
 
-int		key_hook(int key, t_env *env);
+int		key_press_hook(int key, t_env *env);
+int		mouse_button_hook(int button, int x, int y, t_env *env);
+void	set_hooks(t_env *env);

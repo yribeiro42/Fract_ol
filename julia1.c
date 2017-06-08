@@ -1,30 +1,27 @@
 #include "fractol.h"
-#include <math.h>
 
-void	init_burningship(t_env *env)
+void	init_julia(t_env *env)
 {
-	env->start_x = -0.3;
+	env->start_x = -0.58;
 	env->start_y = 0.0;
-	env->zoom = 0.7;
-	env->iteration = 100;
-	env->color = 0xFFAA00;
+	env->zoom = 0.8;
+	env->iteration = 300;
+	env->color = 0x5555FF;
 }
 
-int		burningship(t_env *env)
+int		julia(t_env *env)
 {
 	t_complex	new;
 	t_complex	old;
 	int			i;
-	
-	new.real = 0;
-	new.imag = 0;
+
 	i = 0;
 	while ((new.real * new.real + new.imag * new.imag) < 4.0 && i < env->iteration)
 	{
 		old.real = new.real;
 		old.imag = new.imag;
 		new.real = old.real * old.real - old.imag * old.imag + env->p_r;
-		new.imag = 2.0 * fabs(old.real * old.imag) + env->p_i;
+		new.imag = 2.0 * old.real * old.imag + env->p_i;
 		i++;
 	}
 	if (i == env->iteration)
@@ -32,9 +29,9 @@ int		burningship(t_env *env)
 	return (i);
 }
 
-void	draw_burningship(t_env *env)
+void	draw_julia(t_env *env)
 {
-	init_burningship(env);
+	init_julia(env);
 	int	x;
 	int	y;
 	int color;
@@ -47,7 +44,7 @@ void	draw_burningship(t_env *env)
 		while (x < WIDTH)
 		{
 			env->p_r = 1.5 * (x - WIDTH / 2.0) / (0.5 * env->zoom * WIDTH) + env->start_x;
-			color = (env->color * (burningship(env) % 255));
+			color = (env->color * (julia(env) % 255));
 			fill_pixel(env, x, y, color);
 			x++;
 		}

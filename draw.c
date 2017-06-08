@@ -10,7 +10,7 @@ void	fill_pixel(t_env *env, int x, int y, int hexcolor)
 	env->img_str[pos + 2] = hexcolor >> 16;
 }
 
-void	redraw(t_env *env)
+/*void	redraw(t_env *env)
 {
 	if (env->fractal == '1')
 		env->fractal_ptr = draw_mandelbrot;
@@ -18,4 +18,6 @@ void	redraw(t_env *env)
 		env->fractal_ptr = draw_julia;
 	else if (env->fractal == '3')
 		env->fractal_ptr = draw_burningship;
+	destroy_env(env);
 }
+*/
