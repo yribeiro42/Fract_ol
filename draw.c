@@ -10,14 +10,17 @@ void	fill_pixel(t_env *env, int x, int y, int hexcolor)
 	env->img_str[pos + 2] = hexcolor >> 16;
 }
 
-/*void	redraw(t_env *env)
+void	redraw(t_env *env)
 {
-	if (env->fractal == '1')
-		env->fractal_ptr = draw_mandelbrot;
-	else if (env->fractal == '2')
-		env->fractal_ptr = draw_julia;
-	else if (env->fractal == '3')
-		env->fractal_ptr = draw_burningship;
-	destroy_env(env);
+	/*int bpp;
+	int size_line;
+	int endian;
+
+	env->img_ptr = mlx_new_image(env->mlx, WIDTH, HEIGHT);
+	env->img_str = mlx_get_data_addr(env->img_ptr, &bpp, &size_line, &endian);*/
+	printf("DEBUG1\n");
+	fractol(env, env->fractal);
+	printf("DEBUG2\n");
+	mlx_put_image_to_window(env->mlx, env->win, env->img_ptr, 0, 0);
+	mlx_destroy_image(env->mlx, env->img_ptr);
 }
-*/

@@ -16,7 +16,7 @@ void	create_env(t_env *env)
 	env->img_str = mlx_get_data_addr(env->img_ptr, &bpp, &size_line, &endian);
 }
 
-void	destroy_env(t_env *env)
+void	draw_image(t_env *env)
 {
 	mlx_put_image_to_window(env->mlx, env->win, env->img_ptr, 0, 0);
 	mlx_destroy_image(env->mlx, env->img_ptr);

@@ -6,7 +6,7 @@
 /*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 18:17:21 by yoann             #+#    #+#             */
-/*   Updated: 2017/06/08 18:31:26 by yoann            ###   ########.fr       */
+/*   Updated: 2017/06/08 21:02:19 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fractol.h"
@@ -17,9 +17,10 @@ void	init_julia(t_env *env)
 	env->start_y = 0.0;
 	env->zoom = 1.0;
 	env->iteration = 300;
-	env->color = 0x7F15D5;
+	env->color = 0x7AFF6B;
 	env->p_r = -0.7;
 	env->p_i = 0.27015;
+	env->flag = 1;
 }
 
 int		julia(t_env *env, int x, int y)
@@ -46,7 +47,8 @@ int		julia(t_env *env, int x, int y)
 
 void	draw_julia(t_env *env)
 {
-	init_julia(env);
+	if (!env->flag)
+		init_julia(env);
 	int	x;
 	int	y;
 	int color;

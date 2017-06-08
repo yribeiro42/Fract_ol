@@ -14,5 +14,6 @@ int		mouse_button_hook(int button, int x, int y, t_env *env)
 		env->start_x += x / env->zoom / 1.5;
 		env->start_y += y / env->zoom / 1.5;
 	}
+	redraw(env);
 	return (0);
 }

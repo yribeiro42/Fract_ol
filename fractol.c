@@ -33,9 +33,10 @@ int main(int argc, char **argv)
 	}
 	else
 		usage();
- 	//mlx_key_hook(env->win, key_hook, env);
- 	set_hooks(env);
-	destroy_env(env);
+	draw_image(env);
+ 	mlx_key_hook(env->win, key_press_hook, env);
+ 	mlx_mouse_hook(env->win, mouse_button_hook, env);
+ 	//set_hooks(env);
 	mlx_loop(env->mlx);
 	return (0);
 }
