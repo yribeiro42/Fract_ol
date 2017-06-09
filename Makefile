@@ -1,4 +1,4 @@
-NAME = Fract_ol
+NAME = fractol
 #CFLAGS = -Wall -Wextra -Werror
 SRC = fractol.c draw.c environment.c mandelbrot.c keyhook.c julia.c burningship.c mouse_hook.c
 OBJ = $(SRC:.c=.o)

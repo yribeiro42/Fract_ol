@@ -7,7 +7,7 @@ void	usage(void)
 	exit(0);
 }
 
-void	fractol(t_env *env, char fractal)
+void	fractol(t_env *env)
 {
 	if (env->fractal == '1')
 		draw_mandelbrot(env);
@@ -29,11 +29,12 @@ int main(int argc, char **argv)
 	if (argv[1][0] == '1' || argv[1][0] == '2' || argv[1][0] == '3')
 	{
 		env->fractal = argv[1][0];
-		fractol(env, env->fractal);
+		fractol(env);
 	}
 	else
 		usage();
 	draw_image(env);
+	mlx_do_key_autorepeatoff(env->mlx);
  	mlx_key_hook(env->win, key_press_hook, env);
  	mlx_mouse_hook(env->win, mouse_button_hook, env);
  	//set_hooks(env);

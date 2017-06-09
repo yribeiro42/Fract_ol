@@ -5,9 +5,10 @@ void	init_burningship(t_env *env)
 {
 	env->start_x = -0.3;
 	env->start_y = 0.0;
-	env->zoom = 0.7;
+	env->zoom = 0.1;
 	env->iteration = 100;
 	env->color = 0xFFAA00;
+	env->flag = 1;
 }
 
 int		burningship(t_env *env)
@@ -34,7 +35,8 @@ int		burningship(t_env *env)
 
 void	draw_burningship(t_env *env)
 {
-	init_burningship(env);
+	if (!env->flag)
+		init_burningship(env);
 	int	x;
 	int	y;
 	int color;

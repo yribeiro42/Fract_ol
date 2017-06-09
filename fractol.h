@@ -72,7 +72,7 @@ void	draw_burningship(t_env *env);
 void	init_env(t_env *env);
 void	create_env(t_env *env);
 void	draw_image(t_env *env);
-void	fractol(t_env *env, char fractal);
+void	fractol(t_env *env);
 void	redraw(t_env *env);
 
 // HOOK //

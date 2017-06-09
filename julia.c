@@ -6,7 +6,7 @@
 /*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 18:17:21 by yoann             #+#    #+#             */
-/*   Updated: 2017/06/08 22:15:11 by yoann            ###   ########.fr       */
+/*   Updated: 2017/06/09 15:01:37 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "fractol.h"
@@ -15,7 +15,7 @@ void	init_julia(t_env *env)
 {
 	env->start_x = 0.0;
 	env->start_y = 0.0;
-	env->zoom = 1.0;
+	env->zoom = 1;
 	env->iteration = 300;
 	env->color = 0x7AFF6B;
 	env->p_r = -0.7;
