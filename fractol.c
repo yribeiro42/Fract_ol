@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/13 17:20:30 by yribeiro          #+#    #+#             */
+/*   Updated: 2017/06/13 17:35:15 by yribeiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	usage(void)
@@ -37,7 +49,7 @@ int main(int argc, char **argv)
 	mlx_do_key_autorepeatoff(env->mlx);
  	mlx_key_hook(env->win, key_press_hook, env);
  	mlx_mouse_hook(env->win, mouse_button_hook, env);
- 	//set_hooks(env);
+ 	mlx_hook(env->win, MotionNotify, PointerMotionMask, mouse_motion, env);
 	mlx_loop(env->mlx);
 	return (0);
 }

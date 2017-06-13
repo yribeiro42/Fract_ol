@@ -6,7 +6,7 @@ void	init_mandelbrot(t_env *env)
 	env->start_y = 0.0;
 	env->zoom = 1;
 	env->iteration = 300                                                                               ;
-	env->color = 0xFFAA7F;
+	env->color = 0x0000F9;
 	env->flag = 1;
 }
 

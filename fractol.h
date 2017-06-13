@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/13 17:28:08 by yribeiro          #+#    #+#             */
+/*   Updated: 2017/06/13 17:30:43 by yribeiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include "libft/libft.h"
 #include "minilibx/mlx.h"
@@ -5,6 +17,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
+# include "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/X.h"
 
 # define WIDTH 600
 # define HEIGHT 600
@@ -79,4 +92,5 @@ void	redraw(t_env *env);
 
 int		key_press_hook(int key, t_env *env);
 int		mouse_button_hook(int button, int x, int y, t_env *env);
+int		mouse_motion(int x, int y, t_env *env);
 void	set_hooks(t_env *env);

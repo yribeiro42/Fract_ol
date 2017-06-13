@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 18:17:21 by yoann             #+#    #+#             */
-/*   Updated: 2017/06/09 15:01:37 by yoann            ###   ########.fr       */
+/*   Updated: 2017/06/13 17:45:20 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "fractol.h"
 
 void	init_julia(t_env *env)
@@ -17,7 +18,7 @@ void	init_julia(t_env *env)
 	env->start_y = 0.0;
 	env->zoom = 1;
 	env->iteration = 300;
-	env->color = 0x7AFF6B;
+	env->color = 0xF3430D;
 	env->p_r = -0.7;
 	env->p_i = 0.27015;
 	env->flag = 1;
