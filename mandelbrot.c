@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/13 17:51:21 by yribeiro          #+#    #+#             */
+/*   Updated: 2017/06/13 18:04:55 by yribeiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	init_mandelbrot(t_env *env)
@@ -5,7 +17,7 @@ void	init_mandelbrot(t_env *env)
 	env->start_x = -0.5;
 	env->start_y = 0.0;
 	env->zoom = 1;
-	env->iteration = 300                                                                               ;
+	env->iteration = 300;
 	env->color = 0x0000F9;
 	env->flag = 1;
 }
@@ -15,7 +27,7 @@ int		mandelbrot(t_env *env)
 	t_complex	new;
 	t_complex	old;
 	int			i;
-	
+
 	new.real = 0;
 	new.imag = 0;
 	i = 0;
@@ -34,12 +46,12 @@ int		mandelbrot(t_env *env)
 
 void	draw_mandelbrot(t_env *env)
 {
-	if (!env->flag)
-		init_mandelbrot(env);
 	int	x;
 	int	y;
 	int color;
 
+	if (!env->flag)
+		init_mandelbrot(env);
 	y = 0;
 	while (y < HEIGHT)
 	{

@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 18:17:21 by yoann             #+#    #+#             */
-/*   Updated: 2017/06/13 17:45:20 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/06/13 18:03:32 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ int		julia(t_env *env, int x, int y)
 
 void	draw_julia(t_env *env)
 {
-	if (!env->flag)
-		init_julia(env);
 	int	x;
 	int	y;
 	int color;
 
+	if (!env->flag)
+		init_julia(env);
 	y = 0;
 	while (y < HEIGHT)
 	{

@@ -1,11 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/13 15:29:09 by yribeiro          #+#    #+#             */
+/*   Updated: 2017/06/13 18:01:44 by yribeiro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	fill_pixel(t_env *env, int x, int y, int hexcolor)
 {
 	int pos;
+
 	pos = (4 * x) + (4 * y * WIDTH);
 	env->img_str[pos] = hexcolor;
- 	env->img_str[pos + 1] = hexcolor >> 8;
+	env->img_str[pos + 1] = hexcolor >> 8;
 	env->img_str[pos + 2] = hexcolor >> 16;
 }
 

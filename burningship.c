@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 15:29:09 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/13 17:36:19 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/06/13 17:59:28 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		burningship(t_env *env)
 	t_complex	new;
 	t_complex	old;
 	int			i;
-	
+
 	new.real = 0;
 	new.imag = 0;
 	i = 0;
@@ -47,12 +47,12 @@ int		burningship(t_env *env)
 
 void	draw_burningship(t_env *env)
 {
-	if (!env->flag)
-		init_burningship(env);
 	int	x;
 	int	y;
 	int color;
 
+	if (!env->flag)
+		init_burningship(env);
 	y = 0;
 	while (y < HEIGHT)
 	{
