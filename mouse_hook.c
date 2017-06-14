@@ -6,7 +6,7 @@
 /*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:30:15 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/14 19:17:16 by yoann            ###   ########.fr       */
+/*   Updated: 2017/06/14 19:18:40 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		mouse_motion(int x, int y, t_env *env)
 	{
 		env->p_r = (float)(x - WIDTH / 2) / WIDTH * 2;
 		env->p_i = (float)(y - HEIGHT / 2) / HEIGHT * 2;
+		printf("%f;%f\n", env->p_r, env->p_i);
 		redraw(env);
 	}
 	return (0);

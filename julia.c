@@ -6,7 +6,7 @@
 /*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 18:17:21 by yoann             #+#    #+#             */
-/*   Updated: 2017/06/14 18:42:17 by yoann            ###   ########.fr       */
+/*   Updated: 2017/06/14 19:20:31 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	init_julia(t_env *env)
 	env->start_y = 0.0;
 	env->zoom = 1;
 	env->iteration = 300;
-	env->color = 0x631D7F;
-	env->p_r = -0.7;
-	env->p_i = 0.27015;
+	env->color = 0x070BFF;
+	env->p_r = -0.84;
+	env->p_i = 0.28;
 	env->flag = 1;
 }
 
