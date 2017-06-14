@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:51:21 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/13 18:04:55 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/06/14 19:16:05 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ void	init_mandelbrot(t_env *env)
 	env->start_x = -0.5;
 	env->start_y = 0.0;
 	env->zoom = 1;
-	env->iteration = 300;
-	env->color = 0x0000F9;
+	env->iteration = 100;
+	env->color = 0x070BFF;
 	env->flag = 1;
 }
 
-int		mandelbrot(t_env *env)
+int		mandelbrot(t_env *env, int x, int y)
 {
 	t_complex	new;
 	t_complex	old;
 	int			i;
 
-	new.real = 0;
 	new.imag = 0;
+	new.real = 0;
 	i = 0;
 	while ((new.real * new.real + new.imag * new.imag) < 4.0 && i < env->iteration)
 	{
@@ -60,7 +60,7 @@ void	draw_mandelbrot(t_env *env)
 		while (x < WIDTH)
 		{
 			env->p_r = 1.5 * (x - WIDTH / 2.0) / (0.5 * env->zoom * WIDTH) + env->start_x;
-			color = (env->color * (mandelbrot(env) % 255));
+			color = (env->color * (mandelbrot(env, x, y) % 255));
 			fill_pixel(env, x, y, color);
 			x++;
 		}

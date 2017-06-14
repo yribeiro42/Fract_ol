@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:20:30 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/13 18:14:51 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/06/14 18:02:54 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int		main(int argc, char **argv)
 	else
 		usage();
 	draw_image(env);
-	mlx_do_key_autorepeatoff(env->mlx);
+	mlx_do_key_autorepeaton(env->mlx);
 	mlx_key_hook(env->win, key_press_hook, env);
 	mlx_mouse_hook(env->win, mouse_button_hook, env);
 	mlx_hook(env->win, MotionNotify, PointerMotionMask, mouse_motion, env);

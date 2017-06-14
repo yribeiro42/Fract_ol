@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   burningship.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 15:29:09 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/13 17:59:28 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/06/14 18:42:20 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_burningship(t_env *env)
 {
 	env->start_x = -0.3;
 	env->start_y = 0.0;
-	env->zoom = 0.1;
+	env->zoom = 0.8;
 	env->iteration = 100;
 	env->color = 0xFFAA00;
 	env->flag = 1;

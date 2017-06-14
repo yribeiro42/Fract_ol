@@ -6,7 +6,7 @@
 /*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:28:08 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/14 17:09:53 by yoann            ###   ########.fr       */
+/*   Updated: 2017/06/14 19:16:14 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	draw(t_env *env);
 // MANDEL //
 
 void	init_mandelbrot(t_env *env);
-int		mandelbrot(t_env *env);
+int		mandelbrot(t_env *env, int x, int y);
 void	draw_mandelbrot(t_env *env);
 
 // JULIA //
