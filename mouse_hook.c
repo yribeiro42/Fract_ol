@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:30:15 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/13 18:05:04 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/06/14 17:14:17 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 int		mouse_motion(int x, int y, t_env *env)
 {
-	//printf("%f\n", (float)(x - WIDTH / 2) / WIDTH * 2);
-	env->p_r = (float)(x - WIDTH / 2) / WIDTH * 2;
-	env->p_i = (float)(y - HEIGHT / 2) / HEIGHT * 2;
-	redraw(env);
+	if (env->fractal == '2')
+	{
+		env->p_r = (float)(x - WIDTH / 2) / WIDTH * 2;
+		env->p_i = (float)(y - HEIGHT / 2) / HEIGHT * 2;
+		redraw(env);
+	}
 	return (0);
 }
 
@@ -26,7 +28,7 @@ int		mouse_button_hook(int button, int x, int y, t_env *env)
 	printf("%d\n", button);
 	if (button == 1)
 		env->iteration += 10;
-	else if (button == 2 && env->iteration > 10)
+	else if (button == 3 && env->iteration > 10)
 		env->iteration -= 10;
 	if (button == 4)
 	{

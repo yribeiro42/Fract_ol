@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keyhook.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 16:05:13 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/13 18:03:49 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/06/14 17:08:47 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		key_press_hook(int key, t_env *env)
 {
 	//printf("%d\n", key);
-	if (key == 53)
+	if (key == ESC)
 		exit(0);
 	return (0);
 }
