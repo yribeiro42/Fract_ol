@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:28:08 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/19 13:39:20 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/19 22:33:05 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@
 # include <fcntl.h>
 # include <mlx.h>
 # include "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/X.h"
+//# include <X11/Xlib.h>
 
 # define WIDTH 400
 # define HEIGHT 400
+# define WINX WIDTH / (3.0 / 4.0)
+# define MOUSEX (env->start_x - WIDTH / 2)
+# define MOUSEY (env->start_y - HEIGHT / 2)
 
+//# define ESC 53
+//# define PAGE_UP 116
+//# define PAGE_DOWN 121
 
-# define ESC 53
-# define PAGE_UP 116
-# define PAGE_DOWN 121
-
-//#define ESC 65307
-//#define PAGE_UP 65365
-//#define PAGE_DOWN 65366
+#define ESC 65307
+#define PAGE_UP 65365
+#define PAGE_DOWN 65366
 #define PLUS 61
 #define MINUS 45
 //#define UP 65362

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:51:21 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/19 13:42:42 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/19 22:24:53 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	init_mandelbrot(t_env *env)
 {
-	env->start_x = -0.5;
+	env->start_x = -1.5;
 	env->start_y = 0.0;
-	env->zoom = 1.0;
-	env->iteration = 100;
+	env->zoom = 2.5;
+	env->iteration = 30;
 	env->color = 0x070BFF;
 	env->flag = 1;
 }

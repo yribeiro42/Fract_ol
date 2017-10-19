@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
+#    By: yoann <yoann@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/13 16:14:59 by yribeiro          #+#    #+#              #
-#    Updated: 2017/10/19 17:27:46 by yribeiro         ###   ########.fr        #
+#    Updated: 2017/10/19 22:33:20 by yoann            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,12 +19,13 @@ LIBFT = libft/libft.a
 MLX = -L /usr/local/lib -lmlx -lXext -lX11 -lm
 MACMLX = -L/usr/local/lib/ -I/usr/local/include -lmlx -framework OpenGL -framework AppKit
 
-%.o : %.c
-	gcc $(CFLAGS) $(LIBFT_H) -c $?
+all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME):
 	make -C libft/
-	gcc $(CFLAGS) -o $(NAME) $^ -lm -L libft/ -lft -lmlx -framework OpenGL -framework AppKit
+	gcc $(CFLAGS) $(LIBFT_H) -c $(SRC)
+	gcc $(CFLAGS) -o $(NAME) $(OBJ) $(LIBFT) $(MLX)
+
 
 clean:
 	rm -rf $(OBJ)

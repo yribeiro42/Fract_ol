@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:30:15 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/19 19:27:38 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/19 22:32:58 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
+void	zoom(t_env *env, int x, int y, double factor)
+{
+	double apt;
+	double diff;
+	double offsetx;
+	double offsety;
+
+	apt = env->zoom * factor;
+	diff = apt - env->zoom;
+	offsetx = (((double)((HEIGHT / 2) - x) / HEIGHT) * diff);
+	offsety = (((double)((HEIGHT / 2) - y) / HEIGHT) * diff);
+	env->start_x += offsetx;
+	env->start_y += offsety;
+	env->zoom = apt;
+}
 
 int		mouse_motion(int x, int y, t_env *env)
 {
@@ -33,21 +49,11 @@ int		mouse_button_hook(int button, int x, int y, t_env *env)
 		env->iteration -= 10;
 	if (button == 4)
 	{
-		 x -= WIDTH;
-		 y -= HEIGHT;
-		 env->zoom = (env->zoom + 1) * 1.1;
-		 printf("zoom = %f\n", env->zoom);
-
-		 
-		 env->start_y += y / env->zoom / 1.5;
-		 //printf("start y %f\n", env->start_y);
-		 env->start_x += x / env->zoom / 1.5;
-		 printf("start x %f\n", env->start_x);
+		 zoom(env, x, y, 1.1);
 	}
-	else if (button == 5 && env->zoom > 1)
+	else if (button == 5)
 	{
-		printf("zoom [%f]\n", env->zoom);
-		env->zoom = (env->zoom - 1) / 1.1;
+		zoom(env, x, y, 0.9);
 	}
 	redraw(env);
 	return (0);

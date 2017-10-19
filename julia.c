@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 18:17:21 by yoann             #+#    #+#             */
-/*   Updated: 2017/10/19 13:45:21 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/19 22:32:58 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_julia(t_env *env)
 	env->start_x = 0.0;
 	env->start_y = 0.0;
 	env->zoom = 1;
-	env->iteration = 50;
+	env->iteration = 25;
 	env->color = 0x070BFF;
 	env->p_r = -0.84;
 	env->p_i = 0.28;
