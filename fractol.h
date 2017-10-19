@@ -3,35 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:28:08 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/14 19:20:15 by yoann            ###   ########.fr       */
+/*   Updated: 2017/10/19 13:39:20 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft/libft.h"
-#include "minilibx/mlx.h"
+//#include "minilibx/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include <math.h>
- #include <X11/Xlib.h>
-//# include "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/X.h"
+# include <mlx.h>
+# include "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/X.h"
 
-# define WIDTH 600
-# define HEIGHT 600
+# define WIDTH 400
+# define HEIGHT 400
 
-#define ESC 65307
-#define PAGE_UP 65365
-#define PAGE_DOWN 65366
+
+# define ESC 53
+# define PAGE_UP 116
+# define PAGE_DOWN 121
+
+//#define ESC 65307
+//#define PAGE_UP 65365
+//#define PAGE_DOWN 65366
 #define PLUS 61
 #define MINUS 45
-#define UP 65362
-#define RIGHT 65363
-#define BOTTOM 65364
-#define LEFT 65361
+//#define UP 65362
+//#define RIGHT 65363
+//#define BOTTOM 65364
+//#define LEFT 65361
 
 typedef	struct	s_complex
 {
@@ -66,7 +70,7 @@ void	draw(t_env *env);
 // MANDEL //
 
 void	init_mandelbrot(t_env *env);
-int		mandelbrot(t_env *env, int x, int y);
+int		mandelbrot(t_env *env);
 void	draw_mandelbrot(t_env *env);
 
 // JULIA //
