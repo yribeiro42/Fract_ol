@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 16:05:13 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/20 13:14:47 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/20 13:55:54 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 int		key_press_hook(int key, t_env *env)
 {
-	printf("%d\n", key);
 	if (key == ESC)
 	{
 		free(env);
 		exit(0);
 	}
-	if (key == 49)
-		env->
+	if (key == 49 && env->motion)
+		env->motion = 0;
+	else if (key == 49 && !env->motion)
+		env->motion = 1;
 	redraw(env);
 	return (0);
 }
