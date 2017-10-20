@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:28:08 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/20 12:39:39 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/20 13:12:06 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef struct 	s_env
 	int			color;
 	int			flag;
 	int			debug;
+	int			motion;
 	double		zoom;	
 	double		start_x;
 	double		start_y;

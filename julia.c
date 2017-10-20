@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 18:17:21 by yoann             #+#    #+#             */
-/*   Updated: 2017/10/20 11:43:40 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/20 13:14:16 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	init_julia(t_env *env)
 	env->p_r = -0.7;
 	env->p_i = 0.27;
 	env->flag = 1;
+	env->motion = 1;
 }
 
 int		julia(t_env *env, int x, int y)
