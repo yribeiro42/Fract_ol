@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:51:21 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/19 22:24:53 by yoann            ###   ########.fr       */
+/*   Updated: 2017/10/20 11:37:02 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,7 @@ int		mandelbrot(t_env *env)
 		i++;
 	}
 	if (i == env->iteration)
-	{
 		return (0);
-	}
 	return (i);
 }
 

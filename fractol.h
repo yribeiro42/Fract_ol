@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:28:08 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/19 22:33:05 by yoann            ###   ########.fr       */
+/*   Updated: 2017/10/20 11:32:59 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,15 @@
 # define MOUSEX (env->start_x - WIDTH / 2)
 # define MOUSEY (env->start_y - HEIGHT / 2)
 
-//# define ESC 53
-//# define PAGE_UP 116
-//# define PAGE_DOWN 121
+# define ESC 53
+# define PAGE_UP 116
+# define PAGE_DOWN 121
 
-#define ESC 65307
-#define PAGE_UP 65365
-#define PAGE_DOWN 65366
-#define PLUS 61
-#define MINUS 45
-//#define UP 65362
-//#define RIGHT 65363
-//#define BOTTOM 65364
-//#define LEFT 65361
+//#define ESC 65307
+//#define PAGE_UP 65365
+//#define PAGE_DOWN 65366
+# define PLUS 61
+# define MINUS 45
 
 typedef	struct	s_complex
 {
