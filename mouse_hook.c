@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mouse_hook.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:30:15 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/19 22:32:58 by yoann            ###   ########.fr       */
+/*   Updated: 2017/10/20 12:41:58 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 void	zoom(t_env *env, int x, int y, double factor)
 {
-	double apt;
+	double newzoom;
 	double diff;
 	double offsetx;
 	double offsety;
 
-	apt = env->zoom * factor;
-	diff = apt - env->zoom;
-	offsetx = (((double)((HEIGHT / 2) - x) / HEIGHT) * diff);
+	newzoom = env->zoom * factor;
+	diff = newzoom - env->zoom;
+	offsetx = (((double)((WINX / 2) - x) / HEIGHT) * diff);
 	offsety = (((double)((HEIGHT / 2) - y) / HEIGHT) * diff);
-	env->start_x += offsetx;
-	env->start_y += offsety;
-	env->zoom = apt;
+	printf("%f;%f\n", offsetx, offsety);
+	env->start_x -= offsetx;
+	env->start_y -= offsety;
+	env->zoom = newzoom;
 }
 
 int		mouse_motion(int x, int y, t_env *env)
@@ -45,11 +46,12 @@ int		mouse_button_hook(int button, int x, int y, t_env *env)
 {
 	if (button == 1)
 		env->iteration += 10;
-	else if (button == 3 && env->iteration > 10)
+	else if (button == 2 && env->iteration > 10)
 		env->iteration -= 10;
 	if (button == 4)
 	{
 		 zoom(env, x, y, 1.1);
+		 printf("%f\n", env->zoom);
 	}
 	else if (button == 5)
 	{

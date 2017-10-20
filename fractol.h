@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:28:08 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/20 11:32:59 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/20 12:39:39 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/X.h"
 //# include <X11/Xlib.h>
 
-# define WIDTH 400
-# define HEIGHT 400
+# define WIDTH 500
+# define HEIGHT 500
 # define WINX WIDTH / (3.0 / 4.0)
 # define MOUSEX (env->start_x - WIDTH / 2)
 # define MOUSEY (env->start_y - HEIGHT / 2)
