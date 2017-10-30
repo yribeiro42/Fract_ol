@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:51:21 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 16:04:26 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 19:25:54 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	init_mandelbrot(t_env *env)
 {
 	env->start_x = -1.5;
-	env->start_y = 0.01;
+	env->start_y = 0.0;
 	env->zoom = 2.5;
-	env->iteration = 30;
+	env->iter = 30;
 	env->color = 0x070BFF;
 	env->flag = 1;
 }
@@ -31,7 +31,7 @@ int		mandelbrot(t_env *env)
 	new.imag = 0;
 	new.real = 0;
 	i = 0;
-	while ((new.real * new.real + new.imag * new.imag) < 4.0 && i < env->iteration)
+	while ((new.real * new.real + new.imag * new.imag) < 4.0 && i < env->iter)
 	{
 		old.real = new.real;
 		old.imag = new.imag;
@@ -39,8 +39,10 @@ int		mandelbrot(t_env *env)
 		new.imag = 2 * old.real * old.imag + env->p_i;
 		i++;
 	}
-	if (i == env->iteration)
+	if (i == env->iter)
+	{
 		return (0);
+	}
 	return (i);
 }
 

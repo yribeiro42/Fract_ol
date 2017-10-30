@@ -3,34 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:28:08 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 16:02:25 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 19:28:21 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft/libft.h"
-//#include "minilibx/mlx.h"
+#include "minilibx/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <mlx.h>
-# include "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/X.h"
-//# include <X11/Xlib.h>
+//# include "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/System/Library/Frameworks/Tk.framework/Versions/8.4/Headers/X11/X.h"
+# include <X11/Xlib.h>
 
 # define WIDTH 400
 # define HEIGHT 400
-# define WINX WIDTH / (3.0 / 4.0)
-# define MOUSEX (env->start_x - WIDTH / 2)
-# define MOUSEY (env->start_y - HEIGHT / 2)
 
-# define ESC 53
+//# define ESC 53
 # define PAGE_UP 116
 # define PAGE_DOWN 121
 
-//#define ESC 65307
+#define ESC 65307
 //#define PAGE_UP 65365
 //#define PAGE_DOWN 65366
 # define PLUS 24
@@ -53,7 +50,7 @@ typedef struct 	s_env
 	char		*img_str;
 	void		*img_ptr;
 	char		fractal;
-	int			iteration;
+	int			iter;
 	int			color;
 	int			flag;
 	int			debug;
@@ -103,3 +100,5 @@ int		key_press_hook(int key, t_env *env);
 int		mouse_button_hook(int button, int x, int y, t_env *env);
 int		mouse_motion(int x, int y, t_env *env);
 void	set_hooks(t_env *env);
+
+void	create_ui(t_env *env);

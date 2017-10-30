@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/08 18:17:21 by yoann             #+#    #+#             */
-/*   Updated: 2017/10/30 16:05:46 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 19:27:40 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	init_julia(t_env *env)
 	env->start_x = 0.0;
 	env->start_y = 0.0;
 	env->zoom = 1;
-	env->iteration = 25;
+	env->iter = 25;
 	env->color = 0x070BFF;
 	env->p_r = -0.7;
 	env->p_i = 0.27;
@@ -34,7 +34,7 @@ int		julia(t_env *env, int x, int y)
 	i = 0;
 	new.imag = (y - HEIGHT / 2.0) / (0.5 * env->zoom * HEIGHT) + env->start_y;
 	new.real = 1.5 * (x - WIDTH / 2.0) / (0.5 * env->zoom * WIDTH) + env->start_x;
-	while ((new.real * new.real + new.imag * new.imag) < 4.0 && i < env->iteration)
+	while ((new.real * new.real + new.imag * new.imag) < 4.0 && i < env->iter)
 	{
 		old.real = new.real;
 		old.imag = new.imag;
@@ -42,7 +42,7 @@ int		julia(t_env *env, int x, int y)
 		new.imag = 2.0 * old.real * old.imag + env->p_i;
 		i++;
 	}
-	if (i == env->iteration)
+	if (i == env->iter)
 		return (0);
 	return (i);
 }

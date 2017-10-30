@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   burningship.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 15:29:09 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 16:21:05 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 19:27:11 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_burningship(t_env *env)
 	env->start_x = -0.3;
 	env->start_y = 0.0;
 	env->zoom = 0.8;
-	env->iteration = 100;
+	env->iter = 100;
 	env->color = 0xFFAA00;
 	env->flag = 1;
 }
@@ -33,7 +33,7 @@ int		burningship(t_env *env)
 	new.imag = 0;
 	i = 0;
 	while ((new.real * new.real + new.imag * new.imag) < 4.0 &&
-		i < env->iteration)
+		i < env->iter)
 	{
 		old.real = new.real;
 		old.imag = new.imag;
@@ -41,7 +41,7 @@ int		burningship(t_env *env)
 		new.imag = 2.0 * fabs(old.real * old.imag) + env->p_i;
 		i++;
 	}
-	if (i == env->iteration)
+	if (i == env->iter)
 		return (0);
 	return (i);
 }

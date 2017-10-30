@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   environment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 15:29:09 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/06/13 17:58:19 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 19:29:06 by yoann            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	init_env(t_env *env)
 {
 	env->mlx = mlx_init();
 	env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, "Fractol");
+
 }
 
 void	create_env(t_env *env)
@@ -31,6 +32,7 @@ void	create_env(t_env *env)
 void	draw_image(t_env *env)
 {
 	mlx_put_image_to_window(env->mlx, env->win, env->img_ptr, 0, 0);
+	create_ui(env);
 	mlx_destroy_image(env->mlx, env->img_ptr);
 }
 
@@ -39,4 +41,9 @@ void	set_hooks(t_env *env)
 	mlx_do_key_autorepeaton(env->mlx);
 	mlx_hook(env->win, 2, 0, key_press_hook, env);
 	mlx_hook(env->win, 4, 0, mouse_button_hook, env);
+}
+
+void	create_ui(t_env *env)
+{
+	mlx_string_put(env->mlx, env->win, 100, 100, 0xC0C0C0, "Controls:");
 }
