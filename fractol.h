@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:28:08 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 15:19:03 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 16:02:25 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,12 @@
 //#define ESC 65307
 //#define PAGE_UP 65365
 //#define PAGE_DOWN 65366
-# define PLUS 61
-# define MINUS 45
+# define PLUS 24
+# define MINUS 27
+# define LEFT 123
+# define UP 126
+# define RIGHT 124
+# define DOWN 125
 
 typedef	struct	s_complex
 {

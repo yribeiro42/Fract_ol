@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:51:21 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 15:32:29 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 16:04:26 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	init_mandelbrot(t_env *env)
 {
 	env->start_x = -1.5;
-	env->start_y = 0.0;
+	env->start_y = 0.01;
 	env->zoom = 2.5;
 	env->iteration = 30;
 	env->color = 0x070BFF;

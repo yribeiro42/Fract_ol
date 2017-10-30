@@ -6,12 +6,12 @@
 #    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/13 16:14:59 by yribeiro          #+#    #+#              #
-#    Updated: 2017/10/20 11:33:50 by yribeiro         ###   ########.fr        #
+#    Updated: 2017/10/30 16:05:56 by yribeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
-#CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 SRC = fractol.c draw.c environment.c mandelbrot.c keyhook.c julia.c burningship.c mouse_hook.c
 OBJ = $(SRC:.c=.o)
 LIBFT_H = -Ilibft/

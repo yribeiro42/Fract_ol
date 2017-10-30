@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 15:29:09 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/19 11:01:56 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 16:21:05 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ int		burningship(t_env *env)
 	new.real = 0;
 	new.imag = 0;
 	i = 0;
-	while ((new.real * new.real + new.imag * new.imag) < 4.0 && i < env->iteration)
+	while ((new.real * new.real + new.imag * new.imag) < 4.0 &&
+		i < env->iteration)
 	{
 		old.real = new.real;
 		old.imag = new.imag;

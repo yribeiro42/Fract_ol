@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:30:15 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 15:32:28 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 16:25:04 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,8 @@ void	zoom(t_env *env, int x, int y, double factor)
 	diff = scale - env->zoom;
 	offsetx = (((double)((HEIGHT / 2) - x) / HEIGHT) * diff);
 	offsety = (((double)((HEIGHT / 2) - y) / HEIGHT) * diff);
-	printf("[%f];[%f]\n", offsetx, offsety);
-	env->start_x += offsetx;
-	env->start_y += offsety;
+	env->start_x -= offsetx;
+	env->start_y -= offsety;
 	env->zoom = scale;
 }
 
@@ -45,19 +44,13 @@ int		mouse_motion(int x, int y, t_env *env)
 int		mouse_button_hook(int button, int x, int y, t_env *env)
 {
 	if (button == 1)
-		zoom(env, x, y, 1.025);
+		env->zoom += 0.5;
 	else if (button == 2 && env->iteration > 10)
-		zoom(env, x, y, 0.985);
-	//env->iteration -= 10;
+		env->zoom -= 0.5;
 	if (button == 4 && env->zoom < 10)
-	{
 		 zoom(env, x, y, 1.025);
-		// printf("%f;%f\n", env->start_x, env->start_y);
-	}
 	else if (button == 5 && env->zoom > 0.7)
-	{
 		zoom(env, x, y, 0.985);
-	}
 	redraw(env);
 	return (0);
 }
