@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:20:30 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/20 11:33:57 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/30 13:31:07 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ int		main(int argc, char **argv)
 	else
 		usage();
 	draw_image(env);
-	//mlx_do_key_autorepeaton(env->mlx);
 	mlx_key_hook(env->win, key_press_hook, env);
 	mlx_mouse_hook(env->win, mouse_button_hook, env);
 	mlx_hook(env->win, MotionNotify, PointerMotionMask, mouse_motion, env);
