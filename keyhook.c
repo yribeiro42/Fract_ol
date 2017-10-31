@@ -6,35 +6,40 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 16:05:13 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 16:03:03 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/31 16:20:32 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		key_press_hook(int key, t_env *env)
+void	destroy_env(t_env *e)
+{
+	mlx_clear_window(e->mlx, e->win);
+	mlx_destroy_window(e->mlx, e->win);
+	free(e);
+	exit(0);
+}
+
+int		key_press_hook(int key, t_env *e)
 {
 	if (key == ESC)
-	{
-		free(env);
-		exit(0);
-	}
+		destroy_env(e);
 	if (key == RIGHT)
-		env->start_x /= 1.05;
+		e->sx += 0.1;
 	if (key == LEFT)
-		env->start_x *= 1.05;
+		e->sx -= 0.1;
 	if (key == UP)
-		env->start_y -= 0.1;
+		e->sy -= 0.1;
 	if (key == DOWN)
-		env->start_y += 0.1;
-	if (key == 49 && env->motion)
-		env->motion = 0;
+		e->sy += 0.1;
 	if (key == PLUS)
-		env->iteration += 10;
+		e->iter += 10;
 	if (key == MINUS)
-		env->iteration -= 10;
-	else if (key == 49 && !env->motion)
-		env->motion = 1;
-	redraw(env);
+		e->iter -= 10;
+	if (key == 49 && e->motion)
+		e->motion = 0;
+	else if (key == 49 && !e->motion)
+		e->motion = 1;
+	redraw(e);
 	return (0);
 }

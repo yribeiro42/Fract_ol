@@ -3,27 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   burningship.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 15:29:09 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 19:27:11 by yoann            ###   ########.fr       */
+/*   Updated: 2017/10/31 16:19:59 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 #include <math.h>
 
-void	init_burningship(t_env *env)
+void	init_burningship(t_env *e)
 {
-	env->start_x = -0.3;
-	env->start_y = 0.0;
-	env->zoom = 0.8;
-	env->iter = 100;
-	env->color = 0xFFAA00;
-	env->flag = 1;
+	e->sx = -0.3;
+	e->sy = -0.3;
+	e->z = 0.8;
+	e->iter = 100;
+	e->color = 0xFFAA00;
+	e->flag = 1;
 }
 
-int		burningship(t_env *env)
+int		burningship(t_env *e)
 {
 	t_complex	new;
 	t_complex	old;
@@ -33,37 +33,37 @@ int		burningship(t_env *env)
 	new.imag = 0;
 	i = 0;
 	while ((new.real * new.real + new.imag * new.imag) < 4.0 &&
-		i < env->iter)
+		i < e->iter)
 	{
 		old.real = new.real;
 		old.imag = new.imag;
-		new.real = old.real * old.real - old.imag * old.imag + env->p_r;
-		new.imag = 2.0 * fabs(old.real * old.imag) + env->p_i;
+		new.real = old.real * old.real - old.imag * old.imag + e->pr;
+		new.imag = 2.0 * fabs(old.real * old.imag) + e->pi;
 		i++;
 	}
-	if (i == env->iter)
+	if (i == e->iter)
 		return (0);
 	return (i);
 }
 
-void	draw_burningship(t_env *env)
+void	draw_burningship(t_env *e)
 {
 	int	x;
 	int	y;
 	int color;
 
-	if (!env->flag)
-		init_burningship(env);
+	if (!e->flag)
+		init_burningship(e);
 	y = 0;
 	while (y < HEIGHT)
 	{
-		env->p_i = (y - HEIGHT / 2.0) / (0.5 * env->zoom * HEIGHT) + env->start_y;
+		e->pi = (y - HEIGHT / 2.0) / (0.5 * e->z * HEIGHT) + e->sy;
 		x = 0;
 		while (x < WIDTH)
 		{
-			env->p_r = 1.5 * (x - WIDTH / 2.0) / (0.5 * env->zoom * WIDTH) + env->start_x;
-			color = (env->color * (burningship(env) % 255));
-			fill_pixel(env, x, y, color);
+			e->pr = 1.5 * (x - WIDTH / 2.0) / (0.5 * e->z * WIDTH) + e->sx;
+			color = (e->color * (burningship(e) % 255));
+			fill_pixel(e, x, y, color);
 			x++;
 		}
 		y++;

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yoann <yoann@student.42.fr>                +#+  +:+       +#+         #
+#    By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/06/13 16:14:59 by yribeiro          #+#    #+#              #
-#    Updated: 2017/10/30 19:28:32 by yoann            ###   ########.fr        #
+#    Updated: 2017/10/31 14:30:46 by yribeiro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,8 +26,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	make -C libft/
-	#gcc $(CFLAGS) -o $(NAME) $^ -lm -L libft/ -lft -lmlx -framework OpenGL -framework AppKit
-	gcc $(CFLAGS) -o $(NAME) $^ -L /usr/local/lib -lmlx -lXext -lX11 -lm libft.a
+	gcc $(CFLAGS) -o $(NAME) $^ -lm -L libft/ -lft -lmlx -framework OpenGL -framework AppKit
+	
 clean:
 	rm -rf $(OBJ)
 

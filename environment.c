@@ -3,47 +3,47 @@
 /*                                                        :::      ::::::::   */
 /*   environment.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 15:29:09 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 19:29:06 by yoann            ###   ########.fr       */
+/*   Updated: 2017/10/31 16:22:25 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_env(t_env *env)
+void	init_env(t_env *e)
 {
-	env->mlx = mlx_init();
-	env->win = mlx_new_window(env->mlx, WIDTH, HEIGHT, "Fractol");
-
+	e->mlx = mlx_init();
+	e->win = mlx_new_window(e->mlx, WIDTH, HEIGHT, "Fractol");
 }
 
-void	create_env(t_env *env)
+void	create_env(t_env *e)
 {
 	int bpp;
 	int size_line;
 	int endian;
 
-	env->img_ptr = mlx_new_image(env->mlx, WIDTH, HEIGHT);
-	env->img_str = mlx_get_data_addr(env->img_ptr, &bpp, &size_line, &endian);
+	e->img_ptr = mlx_new_image(e->mlx, WIDTH, HEIGHT);
+	e->img_str = mlx_get_data_addr(e->img_ptr, &bpp, &size_line, &endian);
 }
 
-void	draw_image(t_env *env)
+void	draw_image(t_env *e)
 {
-	mlx_put_image_to_window(env->mlx, env->win, env->img_ptr, 0, 0);
-	create_ui(env);
-	mlx_destroy_image(env->mlx, env->img_ptr);
+	mlx_put_image_to_window(e->mlx, e->win, e->img_ptr, 0, 0);
+	create_ui(e);
+	mlx_destroy_image(e->mlx, e->img_ptr);
 }
 
-void	set_hooks(t_env *env)
+void	set_hooks(t_env *e)
 {
-	mlx_do_key_autorepeaton(env->mlx);
-	mlx_hook(env->win, 2, 0, key_press_hook, env);
-	mlx_hook(env->win, 4, 0, mouse_button_hook, env);
+	mlx_hook(e->win, 2, 0, key_press_hook, e);
+	mlx_hook(e->win, 4, 0, mouse_button_hook, e);
 }
 
-void	create_ui(t_env *env)
+void	create_ui(t_env *e)
 {
-	mlx_string_put(env->mlx, env->win, 100, 100, 0xC0C0C0, "Controls:");
+	mlx_string_put(e->mlx, e->win, 10, 10, 0xC0C0C0, "Iter : + -");
+	mlx_string_put(e->mlx, e->win, 10, 30, 0xC0C0C0, "Move : arrows");
+	mlx_string_put(e->mlx, e->win, 10, 50, 0xC0C0C0, "Zoom : mouse button");
 }

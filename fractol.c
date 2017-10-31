@@ -6,7 +6,7 @@
 /*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:20:30 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 13:31:07 by yribeiro         ###   ########.fr       */
+/*   Updated: 2017/10/31 16:21:53 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,37 @@ void	usage(void)
 	exit(0);
 }
 
-void	fractol(t_env *env)
+void	fractol(t_env *e)
 {
-	if (env->fractal == '1')
-		draw_mandelbrot(env);
-	else if (env->fractal == '2')
-		draw_julia(env);
+	if (e->fractal == '1')
+		draw_mandelbrot(e);
+	else if (e->fractal == '2')
+		draw_julia(e);
 	else
-		draw_burningship(env);
+		draw_burningship(e);
 }
 
 int		main(int argc, char **argv)
 {
-	t_env	*env;
+	t_env	*e;
 
 	if (argc != 2)
 		usage();
-	if (!(env = ft_memalloc(sizeof(t_env))))
+	if (!(e = ft_memalloc(sizeof(t_env))))
 		return (0);
-	init_env(env);
-	create_env(env);
+	init_env(e);
+	create_env(e);
 	if (argv[1][0] == '1' || argv[1][0] == '2' || argv[1][0] == '3')
 	{
-		env->fractal = argv[1][0];
-		fractol(env);
+		e->fractal = argv[1][0];
+		fractol(e);
 	}
 	else
 		usage();
-	draw_image(env);
-	mlx_key_hook(env->win, key_press_hook, env);
-	mlx_mouse_hook(env->win, mouse_button_hook, env);
-	mlx_hook(env->win, MotionNotify, PointerMotionMask, mouse_motion, env);
-	mlx_loop(env->mlx);
+	draw_image(e);
+	mlx_key_hook(e->win, key_press_hook, e);
+	mlx_mouse_hook(e->win, mouse_button_hook, e);
+	mlx_hook(e->win, MotionNotify, PointerMotionMask, mouse_motion, e);
+	mlx_loop(e->mlx);
 	return (0);
 }

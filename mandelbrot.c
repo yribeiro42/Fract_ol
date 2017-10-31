@@ -3,26 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoann <yoann@student.42.fr>                +#+  +:+       +#+        */
+/*   By: yribeiro <yribeiro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/13 17:51:21 by yribeiro          #+#    #+#             */
-/*   Updated: 2017/10/30 19:25:54 by yoann            ###   ########.fr       */
+/*   Updated: 2017/10/31 16:19:27 by yribeiro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_mandelbrot(t_env *env)
+void	init_mandelbrot(t_env *e)
 {
-	env->start_x = -1.5;
-	env->start_y = 0.0;
-	env->zoom = 2.5;
-	env->iter = 30;
-	env->color = 0x070BFF;
-	env->flag = 1;
+	e->sx = -1.5;
+	e->sy = 0.0;
+	e->z = 2.5;
+	e->iter = 30;
+	e->color = 0x070BFF;
+	e->flag = 1;
 }
 
-int		mandelbrot(t_env *env)
+int		mandelbrot(t_env *e)
 {
 	t_complex	new;
 	t_complex	old;
@@ -31,39 +31,39 @@ int		mandelbrot(t_env *env)
 	new.imag = 0;
 	new.real = 0;
 	i = 0;
-	while ((new.real * new.real + new.imag * new.imag) < 4.0 && i < env->iter)
+	while ((new.real * new.real + new.imag * new.imag) < 4.0 && i < e->iter)
 	{
 		old.real = new.real;
 		old.imag = new.imag;
-		new.real = (old.real * old.real) - (old.imag * old.imag) + env->p_r;
-		new.imag = 2 * old.real * old.imag + env->p_i;
+		new.real = (old.real * old.real) - (old.imag * old.imag) + e->pr;
+		new.imag = 2 * old.real * old.imag + e->pi;
 		i++;
 	}
-	if (i == env->iter)
+	if (i == e->iter)
 	{
 		return (0);
 	}
 	return (i);
 }
 
-void	draw_mandelbrot(t_env *env)
+void	draw_mandelbrot(t_env *e)
 {
 	int	x;
 	int	y;
 	int color;
 
-	if (!env->flag)
-		init_mandelbrot(env);
+	if (!e->flag)
+		init_mandelbrot(e);
 	y = 0;
 	while (y < HEIGHT)
 	{
-		env->p_i = (y - HEIGHT / 2.0) / (0.5 * env->zoom * HEIGHT) + env->start_y;
+		e->pi = (y - HEIGHT / 2.0) / (0.5 * e->z * HEIGHT) + e->sy;
 		x = 0;
 		while (x < WIDTH)
 		{
-			env->p_r = 1.5 * (x - WIDTH / 2.0) / (0.5 * env->zoom * WIDTH) + env->start_x;
-			color = (env->color * (mandelbrot(env) % 255));
-			fill_pixel(env, x, y, color);
+			e->pr = 1.5 * (x - WIDTH / 2.0) / (0.5 * e->z * WIDTH) + e->sx;
+			color = (e->color * (mandelbrot(e) % 255));
+			fill_pixel(e, x, y, color);
 			x++;
 		}
 		y++;
